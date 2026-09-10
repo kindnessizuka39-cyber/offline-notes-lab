@@ -1,9 +1,9 @@
-const CACHE_NAME = "offline-notes-lab-v3";
+const CACHE_NAME = "offline-notes-lab-v4";
 const APP_SHELL = [
-  "/offline-notes-lab/",
-  "/offline-notes-lab/manifest.webmanifest",
-  "/offline-notes-lab/icon-192.png",
-  "/offline-notes-lab/icon-512.png"
+  "/pwa_offline_notes_lab/",
+  "/pwa_offline_notes_lab/manifest.webmanifest",
+  "/pwa_offline_notes_lab/icon-192.png",
+  "/pwa_offline_notes_lab/icon-512.png"
 ];
 
 self.addEventListener("install", (event) => {
@@ -30,25 +30,23 @@ self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
 
   event.respondWith(
-    caches
-      .match(event.request)
-      .then(
-        (cached) =>
-          cached ||
-          fetch(event.request)
-            .then((response) => {
-              const copy = response.clone();
-              caches.open(CACHE_NAME).then((cache) => {
-                cache.put(event.request, copy);
-              });
-              return response;
-            })
-            .catch(() => {
-              // Fallback for navigation requests
-              if (event.request.mode === "navigate") {
-                return caches.match("/offline-notes-lab/");
-              }
-            })
-      )
+    caches.match(event.request).then((cached) => {
+      if (cached) return cached;
+
+      return fetch(event.request)
+        .then((response) => {
+          const copy = response.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, copy);
+          });
+          return response;
+        })
+        .catch(() => {
+          if (event.request.mode === "navigate") {
+            return caches.match("/pwa_offline_notes_lab/");
+          }
+          return new Response("Offline", { status: 503 });
+        });
+    })
   );
 });

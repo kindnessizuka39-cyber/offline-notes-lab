@@ -139,10 +139,10 @@ export default function Home() {
           borderLeft: "4px solid #1d1d1b"
         }}>
           <p style={{ margin: "5px 0", fontWeight: "bold", fontSize: "16px" }}>
-            Name: [Aribilola Israel Adedamola]
+            Name: [Kindness Izuka]
           </p>
           <p style={{ margin: "5px 0", fontSize: "15px" }}>
-            Matric Number: [2025/2/108432ET]
+            Matric Number: [2025/2/104377ET]
           </p>
           <p style={{ margin: "5px 0", fontSize: "15px" }}>
             Department: [Mechatronics Engineering]

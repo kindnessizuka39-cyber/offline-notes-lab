@@ -2,19 +2,19 @@
   "name": "Offline Notes Lab",
   "short_name": "Notes Lab",
   "description": "Keep learning when the network leaves.",
-  "start_url": "/offline-notes-lab/",
+  "start_url": "/pwa_offline_notes_lab/",
   "display": "standalone",
   "background_color": "#1d1d1b",
   "theme_color": "#1d1d1b",
   "icons": [
     {
-      "src": "/offline-notes-lab/icon-192.png",
+      "src": "/pwa_offline_notes_lab/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/offline-notes-lab/icon-512.png",
+      "src": "/pwa_offline_notes_lab/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"

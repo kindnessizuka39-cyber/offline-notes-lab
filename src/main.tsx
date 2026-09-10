@@ -8,7 +8,9 @@ createRoot(document.getElementById("root")!).render(<App />);
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
-      .register("/offline-notes-lab/sw.js", { scope: "/offline-notes-lab/" })
+      .register("/pwa_offline_notes_lab/sw.js", {
+        scope: "/pwa_offline_notes_lab/",
+      })
       .catch((error) =>
         console.warn("Service worker registration failed", error)
       );
